@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: sans-serif;
+    margin: auto;
+    max-width: 1920px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./img/bg_start.jpg');
+    background-size: cover;
+}
+
+.btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 50px;
+    border-radius: 5px;
+    transform: translate(-50%, 50%);
+    font-size: 18px;
+    font-weight: 900;
+    color: blueviolet;
+}
+
+
+canvas{
+    border: solid 2px;
+    background-image: url('./img/bg_canvas.jpg');
+    background-size: cover;
+}
+
+.discription{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 350px;
+    margin-top: 20px;
+    margin-left: 30px;
+    color: blueviolet;
+    font-size: 18px;
+    border: solid 2px white;
+    padding: 10px;
+}
+.info{
+    position: absolute;
+    top: 70%;
+    right: 10px;
+    width: 200px;
+    padding-top: 10px;
+    color: white;
+    border: solid 2px white;
+    padding: 10px;
+}
+
+h2{
+    display: inline-block;
+    margin-left: 15px;
+    margin-bottom: 0;
+}
+
+.tower-indicator{
+    position: absolute;
+    top: 50px;
+
+}
+
+.tower-indicator p{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    line-height: 1;
+    margin: 0;
+}
+progress{
+    height: 40px;
+    border-radius: 0px;
+}
+
+.tower1{
+    left: 20px;
+}
+.tower1 progress::-webkit-progress-value{
+    background-color: darkgreen !important;
+}
+.tower1 progress{
+    accent-color: darkgreen !important;
+    color: darkgreen !important;
+}
+
+.tower2{
+    right: 20px;
+}
+
+.tower2 progress::-webkit-progress-value{
+    background-color: darkblue !important;
+}
+.tower2 progress{
+    accent-color: darkblue !important;
+    color: darkblue !important;
+}
+
+.game-over{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    margin: 0;
+    z-index: 999;
+}
+
