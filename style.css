@@ -45,14 +45,15 @@ canvas{
     position: absolute;
     top: 0;
     left: 0;
-    width: 350px;
+    width: 400px;
     margin-top: 20px;
     margin-left: 30px;
     color: blueviolet;
     font-size: 18px;
-    border: solid 2px white;
+    border: solid 4px blueviolet;
     padding: 10px;
 }
+
 .info{
     position: absolute;
     top: 70%;
@@ -60,14 +61,16 @@ canvas{
     width: 200px;
     padding-top: 10px;
     color: white;
-    border: solid 2px white;
-    padding: 10px;
+    border: solid 4px blueviolet;
+    padding: 5px;
+    font-weight: bold;
 }
 
 h2{
     display: inline-block;
     margin-left: 15px;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .tower-indicator{
@@ -123,3 +126,22 @@ progress{
     z-index: 999;
 }
 
+
+.game-over p{
+    color: blueviolet;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.btn_restart{
+    position: absolute;
+    top: 62%;
+    left: 45%;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #b918be;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    color: white;
+    font-size: 24px;
+}

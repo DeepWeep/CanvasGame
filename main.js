@@ -6,9 +6,9 @@ function start() {
     document.querySelector('.discription').remove();
     document.querySelector('.btn').remove();
 const wrapper = document.querySelector('.game');
-    // let audioStart = new Audio();
-    // audioStart.src = './audio/start.mp3';
-    // audioStart.play();
+    let audioStart = new Audio();
+    audioStart.src = './audio/start.mp3';
+    audioStart.play();
     const canvas = document.createElement('canvas');
     let ctx = canvas.getContext('2d');
     ctx.fillStyle = 'red';
@@ -18,9 +18,7 @@ const wrapper = document.querySelector('.game');
     imgTower1.src = './img/tower1.png';
     let imgTower2 = new Image();
     imgTower2.src = './img/tower2.png';
-    // const shellMax = 8;
-    // let imgUserShell = new Image();
-    // imgUserShell.src = './img/shell-ball.png';
+    
 
 
     function resize() {
@@ -132,6 +130,7 @@ wrapper.append(divTower2);
              console.log(tower1.die); 
              console.log(tower2.die); 
         } else {
+            audioStart.pause();
             clearInterval(atack);
             let lossBlock = document.createElement('div');
             lossBlock.classList.add('game-over');
@@ -139,7 +138,11 @@ wrapper.append(divTower2);
             p.textContent = `${tower1.die ? tower1.name : tower2.name} loss`;
             lossBlock.appendChild(p);
             wrapper.appendChild(lossBlock);
-
+            let btnRestart = document.createElement('button');
+            btnRestart.addEventListener('click', () => location.reload());
+            wrapper.appendChild(btnRestart);
+            btnRestart.textContent = 'Restart';
+            btnRestart.setAttribute('class', 'btn_restart');
         }  
     }
 
