@@ -133,9 +133,15 @@ progress{
     font-weight: bold;
 }
 
+.game-over span{
+    color: blueviolet;
+    font-size: 48px;
+    font-weight: bold;
+}
+
 .btn_restart{
     position: absolute;
-    top: 62%;
+    top: 72%;
     left: 45%;
     width: 100px;
     height: 50px;
@@ -144,4 +150,37 @@ progress{
     background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
     color: white;
     font-size: 24px;
+}
+
+.pausebtn{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: mediumslateblue;
+    border-radius: 999px;
+    z-index: 999;
+}
+
+.pausebtn img{
+    width: 100%;
+}
+
+.bg_pause{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .45) 0%, rgba(0, 0, 0, .45) 100%);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color:mediumblue;
+    font-size: 24px;
+    font-weight: bold;
 }

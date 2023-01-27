@@ -18,8 +18,28 @@ const wrapper = document.querySelector('.game');
     imgTower1.src = './img/tower1.png';
     let imgTower2 = new Image();
     imgTower2.src = './img/tower2.png';
+    let pause = false;
+    let pausebtn = document.createElement('button');
+    pausebtn.classList.add('pausebtn');
+    pausebtn.innerHTML = `<img src="./img/Pause-Button.png" alt="pause">`;
+    pausebtn.addEventListener('click', () => {
+        createPause();
+    });
+    wrapper.appendChild(pausebtn);
     
-
+    function createPause() {
+        if (pause) {
+            pause = false; 
+            document.querySelector('.bg_pause').style.display = 'none';
+            audioStart.play();
+            window.requestAnimationFrame(loop);
+        } else{
+            pause = true;
+            audioStart.pause();
+            document.querySelector('.bg_pause').style.display = 'flex';
+            
+        }
+    }
 
     function resize() {
         width = window.innerWidth;
@@ -34,7 +54,7 @@ const wrapper = document.querySelector('.game');
     wrapper.appendChild(canvas);
 
     let tower1 = {
-        name: 'tower1',
+        name: 'towerGrey',
         x: 0,
         y: canvas.height,
         hp: 30,
@@ -44,7 +64,7 @@ const wrapper = document.querySelector('.game');
     }
 
     let tower2 = {
-        name: 'tower2',
+        name: 'towerPink',
         x: canvas.width,
         y: canvas.height,
         hp: 30,
@@ -92,7 +112,7 @@ wrapper.append(divTower2);
         if (tower.current_hp >= damage) {
             
             tower.current_hp = tower.current_hp - damage;
-            if (tower.name === 'tower1') {
+            if (tower.name === 'towerGrey') {
                 inputTower1.value = tower.current_hp;
                 spantower1Ch.textContent = tower.current_hp;
             } else {
@@ -102,7 +122,7 @@ wrapper.append(divTower2);
         } else{
             tower.die = true;
             tower.current_hp = 0;
-            if (tower.name === 'tower1') {
+            if (tower.name === 'towerGrey') {
                 inputTower1.value = tower.current_hp;
                 spantower1Ch.textContent = tower.current_hp;
             } else {
@@ -113,8 +133,10 @@ wrapper.append(divTower2);
       }
     
     let atack = setInterval(() => {
-        atackTower(tower1, 1);
-        atackTower(tower2, 5);
+        if (!pause) {
+            atackTower(tower1, 1);
+            atackTower(tower2, 5);
+        }
     }, 1000);
 
     function loop(timestamp){
@@ -123,26 +145,32 @@ wrapper.append(divTower2);
         // write your enimes updates here
 
 
+
         // don`t touch code down
         if (!tower1.die && !tower2.die) {
+            if (!pause) {
             lastRender = timestamp;
              window.requestAnimationFrame(loop); 
-             console.log(tower1.die); 
-             console.log(tower2.die); 
+            } 
         } else {
             audioStart.pause();
             clearInterval(atack);
+            pausebtn.remove();
             let lossBlock = document.createElement('div');
             lossBlock.classList.add('game-over');
             let p = document.createElement('p');
             p.textContent = `${tower1.die ? tower1.name : tower2.name} loss`;
             lossBlock.appendChild(p);
+            let span = document.createElement('span');
+            span.textContent = 'GAME OVER';
+            lossBlock.appendChild(span);
             wrapper.appendChild(lossBlock);
             let btnRestart = document.createElement('button');
             btnRestart.addEventListener('click', () => location.reload());
             wrapper.appendChild(btnRestart);
             btnRestart.textContent = 'Restart';
             btnRestart.setAttribute('class', 'btn_restart');
+            //statistica
         }  
     }
 
