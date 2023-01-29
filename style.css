@@ -184,3 +184,34 @@ progress{
     font-size: 24px;
     font-weight: bold;
 }
+
+a:link{
+    color:blueviolet;
+   font-size:20px;
+   margin-left: 30px;
+ }
+ 
+ a:visited{
+   color: white;
+ }
+ 
+ a:hover{
+   color:blueviolet;
+ }
+ 
+ a:active{
+   color: white;
+    font-size:18px;
+ }
+
+ .a_info{
+    width: 100%;
+    height: 100vh;
+ }
+
+ .a_info img{
+    width: 70%;
+    height: 100vh;
+   
+ }
+

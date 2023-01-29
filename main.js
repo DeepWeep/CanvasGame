@@ -170,6 +170,9 @@ wrapper.append(divTower2);
             wrapper.appendChild(btnRestart);
             btnRestart.textContent = 'Restart';
             btnRestart.setAttribute('class', 'btn_restart');
+            let audioLoss = new Audio();
+            audioLoss.src = './audio/loss.mp3';
+            audioLoss.play();
             //statistica
         }  
     }
