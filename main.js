@@ -1,5 +1,7 @@
 'use strict';
 
+let canvas;
+let ctx;
 
 function start() {
     document.querySelector('.info').remove();
@@ -9,11 +11,12 @@ const wrapper = document.querySelector('.game');
     let audioStart = new Audio();
     audioStart.src = './audio/start.mp3';
     audioStart.play();
-    const canvas = document.createElement('canvas');
-    let ctx = canvas.getContext('2d');
+    canvas = document.createElement('canvas');
+    ctx = canvas.getContext('2d');
     ctx.fillStyle = 'red';
     let width;
     let height;
+    startSprite();
     let imgTower1 = new Image();
     imgTower1.src = './img/tower1.png';
     let imgTower2 = new Image();
@@ -26,18 +29,19 @@ const wrapper = document.querySelector('.game');
         createPause();
     });
     wrapper.appendChild(pausebtn);
-    
+    //startSprite();
     function createPause() {
         if (pause) {
             pause = false; 
             document.querySelector('.bg_pause').style.display = 'none';
             audioStart.play();
             window.requestAnimationFrame(loop);
+            startSprite();
         } else{
             pause = true;
             audioStart.pause();
             document.querySelector('.bg_pause').style.display = 'flex';
-            
+            pauseSprite();
         }
     }
 
@@ -102,7 +106,7 @@ divTower2.append(pTower2);
 wrapper.append(divTower2);
 
     function drawTowers() {
-        ctx.clearRect(0, 0, width, height);
+       //ctx.clearRect(0, 0, width, height);
         ctx.drawImage(imgTower1, tower1.x - 150, tower1.y - 500, 400, 500);
         ctx.drawImage(imgTower2, tower2.x - 250, tower2.y - 580, 400, 600);
     
@@ -135,7 +139,7 @@ wrapper.append(divTower2);
     let atack = setInterval(() => {
         if (!pause) {
             atackTower(tower1, 1);
-            atackTower(tower2, 5);
+            atackTower(tower2, 2);
         }
     }, 1000);
 
@@ -173,6 +177,7 @@ wrapper.append(divTower2);
             let audioLoss = new Audio();
             audioLoss.src = './audio/loss.mp3';
             audioLoss.play();
+            clearEnemy();
             //statistica
         }  
     }

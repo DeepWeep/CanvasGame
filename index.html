@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battle of the towers</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script defer src="./main.js"></script>
-    <link rel="icon" href="./img/icon.png">
-</head>
-<body>
+    <script defer src="./spritesrc.js"></script>
+    <script defer src="./moovenemy.js"></script>
+    <script defer src="./renderpause.js"></script>
+    <script defer src="./rendermoov.js"></script>
+    <script defer src="./updateenemy.js"></script>
+    <script defer src="./enemy.js"></script>
+    <script defer src="./functionenemy.js"></script>
+    <script defer src="./factoryenemy.js"></script>
+    <link rel="icon" href="./img/icon.png" />
+  </head>
+  <body>
     <div class="game">
-        <button class="btn" onclick="start()">START</button>
-        <div class="discription">
-            <img src="./img/battle-towers.jpg" alt="towers" width="65px" height="50px">
-            <h2>Battle of the towers</h2>
-            <h4>Two towers attack each other. If one of the towers manages to attack another tower, it loses a life, but if it defends, it loses nothing.
-                </h4>
-        </div>
-        <div class="info">
-            <h3>Structural diagram</h3>
-            <a href="about.html" target="_blank">Click here</a>
-        </div>
-        <div class="bg_pause">PAUSE</div>
-            </div>
-</body>
+      <button class="btn" onclick="start()">START</button>
+      <div class="discription">
+        <img
+          src="./img/battle-towers.jpg"
+          alt="towers"
+          width="65px"
+          height="50px"
+        />
+        <h2>Battle of the towers</h2>
+        <h4>
+          Two towers attack each other. If one of the towers manages to attack
+          another tower, it loses a life, but if it defends, it loses nothing.
+        </h4>
+      </div>
+      <div class="info">
+        <h3>Structural diagram</h3>
+        <a href="about.html" target="_blank">Click here</a>
+      </div>
+      <div class="bg_pause">PAUSE</div>
+    </div>
+  </body>
 </html>
