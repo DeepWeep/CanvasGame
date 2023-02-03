@@ -6,27 +6,33 @@ function pauseSprite() {
   clearInterval(clearId);
   clearInterval(rightId);
   clearInterval(leftId);
-  arrEnemy.forEach((enemy) => enemy.render());
+  arrEnemyLeft.forEach((enemy) => enemy.render());
+  arrEnemyRight.forEach((enemy) => enemy.render());
 }
 
 function startSprite() {
   clearId = setInterval(() => ctx.clearRect(0, 0, canvas.width, canvas.height), 1);
-  leftId = setInterval(() => enemy(arrTypeEnemyLeft[Math.floor(Math.random() * arrTypeEnemyLeft.length)]), 4000);
-  rightId = setInterval(() => enemy(arrTypeEnemyRight[Math.floor(Math.random() * arrTypeEnemyRight.length)]), 4000);
+  leftId = setInterval(() => enemy(arrTypeEnemyLeft[Math.floor(Math.random() * arrTypeEnemyLeft.length)]), 1500);
+  rightId = setInterval(() => enemy(arrTypeEnemyRight[Math.floor(Math.random() * arrTypeEnemyRight.length)]), 1500);
   runEnemy();
 }
 
 function runEnemy() {
-  arrEnemy.forEach((enemy) => {
+  arrEnemyLeft.forEach((enemy) => {
     enemy.start();
   });
+  arrEnemyRight.forEach((enemy) => {
+    enemy.start();
+  });
+  battle();
   runId = requestAnimationFrame(() => {
     runEnemy();
   });
 }
 
 function clearEnemy() {
-    pauseSprite();
-    arrEnemy.length = 0;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  pauseSprite();
+  arrEnemyLeft.length = 0;
+  arrEnemyRight.length = 0;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 }

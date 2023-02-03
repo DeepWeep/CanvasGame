@@ -24,9 +24,8 @@ right3.src = './img/right3.png';
 let right4 = new Image();
 right4.src = './img/right4.png';
 
-let arrEnemy = [];
-let arrTypeEnemyLeft = ['left1', 'left2', 'left3', 'left4'];
-let arrTypeEnemyRight = ['right1', 'right2', 'right3', 'right4'];
+let arrTypeEnemyLeft = ['left1', 'left2', 'left3', 'left4', 'left5'];
+let arrTypeEnemyRight = ['right1', 'right2', 'right3', 'right4', 'right5'];
 let arrEnemyLeft = [];
 let arrEnemyRight = [];
 

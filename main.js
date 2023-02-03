@@ -29,7 +29,7 @@ const wrapper = document.querySelector('.game');
         createPause();
     });
     wrapper.appendChild(pausebtn);
-    //startSprite();
+    
     function createPause() {
         if (pause) {
             pause = false; 
@@ -135,14 +135,14 @@ wrapper.append(divTower2);
             }
         }
       }
-    
+    /*
     let atack = setInterval(() => {
         if (!pause) {
             atackTower(tower1, 1);
             atackTower(tower2, 2);
         }
     }, 1000);
-
+*/
     function loop(timestamp){
 
         drawTowers();
