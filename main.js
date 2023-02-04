@@ -7,7 +7,7 @@ function start() {
     document.querySelector('.info').remove();
     document.querySelector('.discription').remove();
     document.querySelector('.btn').remove();
-const wrapper = document.querySelector('.game');
+    const wrapper = document.querySelector('.game');
     let audioStart = new Audio();
     audioStart.src = './audio/start.mp3';
     audioStart.play();
@@ -23,21 +23,39 @@ const wrapper = document.querySelector('.game');
     imgTower2.src = './img/tower2.png';
     let pause = false;
     let pausebtn = document.createElement('button');
+    let audioBtn = document.createElement('button')
+    audioBtn.classList.add('audioBtn')
     pausebtn.classList.add('pausebtn');
     pausebtn.innerHTML = `<img src="./img/Pause-Button.png" alt="pause">`;
+    let audioCondition = true;
+    audioBtn.addEventListener('click', () => {
+        switch (audioCondition) {
+            case true:
+                audioStart.volume = 0;
+                audioBtn.style = 'background-image: url(img/109-1095591_no-audio-icon-free-download-png-and-vector.png);'
+                audioCondition = false;
+                break;
+            case false:
+                audioStart.volume = 0.5
+                audioBtn.style = 'background-image: url(img/Speaker_Icon.svg.png)';
+                audioCondition = true;
+                break;
+        }
+    })
     pausebtn.addEventListener('click', () => {
         createPause();
     });
     wrapper.appendChild(pausebtn);
-    
+    wrapper.appendChild(audioBtn);
+
     function createPause() {
         if (pause) {
-            pause = false; 
+            pause = false;
             document.querySelector('.bg_pause').style.display = 'none';
             audioStart.play();
             window.requestAnimationFrame(loop);
             startSprite();
-        } else{
+        } else {
             pause = true;
             audioStart.pause();
             document.querySelector('.bg_pause').style.display = 'flex';
@@ -51,7 +69,7 @@ const wrapper = document.querySelector('.game');
         canvas.width = width;
         canvas.height = height;
     }
-    
+
     window.onresize = resize;
     resize();
 
@@ -64,7 +82,7 @@ const wrapper = document.querySelector('.game');
         hp: 30,
         current_hp: 30,
         die: false,
-        
+
     }
 
     let tower2 = {
@@ -76,45 +94,45 @@ const wrapper = document.querySelector('.game');
         die: false,
     }
 
-let divTower1 = document.createElement('div');
-divTower1.classList.add('tower-indicator');
-divTower1.classList.add('tower1');
-let inputTower1 = document.createElement('progress');
-inputTower1.max = tower1.hp;
-inputTower1.value = tower1.current_hp;
-divTower1.appendChild(inputTower1);
-let pTower1 = document.createElement('p');
-let spantower1Ch = document.createElement('span');
-spantower1Ch.textContent = tower1.current_hp;
-pTower1.append(spantower1Ch);
-divTower1.append(pTower1);
-wrapper.append(divTower1);
+    let divTower1 = document.createElement('div');
+    divTower1.classList.add('tower-indicator');
+    divTower1.classList.add('tower1');
+    let inputTower1 = document.createElement('progress');
+    inputTower1.max = tower1.hp;
+    inputTower1.value = tower1.current_hp;
+    divTower1.appendChild(inputTower1);
+    let pTower1 = document.createElement('p');
+    let spantower1Ch = document.createElement('span');
+    spantower1Ch.textContent = tower1.current_hp;
+    pTower1.append(spantower1Ch);
+    divTower1.append(pTower1);
+    wrapper.append(divTower1);
 
 
-let divTower2 = document.createElement('div');
-divTower2.classList.add('tower-indicator');
-divTower2.classList.add('tower2');
-let inputTower2 = document.createElement('progress');
-inputTower2.max = tower2.hp;
-inputTower2.value = tower2.current_hp;
-divTower2.appendChild(inputTower2);
-let pTower2 = document.createElement('p');
-let spantower2Ch = document.createElement('span');
-spantower2Ch.textContent = tower2.current_hp;
-pTower2.append(spantower2Ch);
-divTower2.append(pTower2);
-wrapper.append(divTower2);
+    let divTower2 = document.createElement('div');
+    divTower2.classList.add('tower-indicator');
+    divTower2.classList.add('tower2');
+    let inputTower2 = document.createElement('progress');
+    inputTower2.max = tower2.hp;
+    inputTower2.value = tower2.current_hp;
+    divTower2.appendChild(inputTower2);
+    let pTower2 = document.createElement('p');
+    let spantower2Ch = document.createElement('span');
+    spantower2Ch.textContent = tower2.current_hp;
+    pTower2.append(spantower2Ch);
+    divTower2.append(pTower2);
+    wrapper.append(divTower2);
 
     function drawTowers() {
-       //ctx.clearRect(0, 0, width, height);
+        //ctx.clearRect(0, 0, width, height);
         ctx.drawImage(imgTower1, tower1.x - 150, tower1.y - 500, 400, 500);
         ctx.drawImage(imgTower2, tower2.x - 250, tower2.y - 580, 400, 600);
-    
-      }
 
-      function atackTower(tower, damage) {
+    }
+
+    function atackTower(tower, damage) {
         if (tower.current_hp >= damage) {
-            
+
             tower.current_hp = tower.current_hp - damage;
             if (tower.name === 'towerGrey') {
                 inputTower1.value = tower.current_hp;
@@ -123,7 +141,7 @@ wrapper.append(divTower2);
                 inputTower2.value = tower.current_hp;
                 spantower2Ch.textContent = tower.current_hp;
             }
-        } else{
+        } else {
             tower.die = true;
             tower.current_hp = 0;
             if (tower.name === 'towerGrey') {
@@ -134,7 +152,7 @@ wrapper.append(divTower2);
                 spantower2Ch.textContent = tower.current_hp;
             }
         }
-      }
+    }
     /*
     let atack = setInterval(() => {
         if (!pause) {
@@ -143,7 +161,7 @@ wrapper.append(divTower2);
         }
     }, 1000);
 */
-    function loop(timestamp){
+    function loop(timestamp) {
 
         drawTowers();
         // write your enimes updates here
@@ -153,9 +171,9 @@ wrapper.append(divTower2);
         // don`t touch code down
         if (!tower1.die && !tower2.die) {
             if (!pause) {
-            lastRender = timestamp;
-             window.requestAnimationFrame(loop); 
-            } 
+                lastRender = timestamp;
+                window.requestAnimationFrame(loop);
+            }
         } else {
             audioStart.pause();
             clearInterval(atack);
@@ -179,7 +197,7 @@ wrapper.append(divTower2);
             audioLoss.play();
             clearEnemy();
             //statistica
-        }  
+        }
     }
 
     let lastRender = 0;
