@@ -1,9 +1,9 @@
-*{
+* {
     box-sizing: border-box;
 }
 
 
-body{
+body {
     font-family: sans-serif;
     margin: auto;
     max-width: 1920px;
@@ -11,7 +11,7 @@ body{
     overflow: hidden;
 }
 
-.game{
+.game {
     position: absolute;
     left: 0;
     top: 0;
@@ -21,7 +21,7 @@ body{
     background-size: cover;
 }
 
-.btn{
+.btn {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,13 +35,13 @@ body{
 }
 
 
-canvas{
+canvas {
     border: solid 2px;
     background-image: url('./img/bg_canvas.jpg');
     background-size: cover;
 }
 
-.discription{
+.discription {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,7 +54,7 @@ canvas{
     padding: 10px;
 }
 
-.info{
+.info {
     position: absolute;
     top: 70%;
     right: 10px;
@@ -66,20 +66,20 @@ canvas{
     font-weight: bold;
 }
 
-h2{
+h2 {
     display: inline-block;
     margin-left: 15px;
     margin-bottom: 0;
     margin-top: 0;
 }
 
-.tower-indicator{
+.tower-indicator {
     position: absolute;
     top: 50px;
 
 }
 
-.tower-indicator p{
+.tower-indicator p {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -88,35 +88,39 @@ h2{
     line-height: 1;
     margin: 0;
 }
-progress{
+
+progress {
     height: 40px;
     border-radius: 0px;
 }
 
-.tower1{
+.tower1 {
     left: 20px;
 }
-.tower1 progress::-webkit-progress-value{
+
+.tower1 progress::-webkit-progress-value {
     background-color: darkgreen !important;
 }
-.tower1 progress{
+
+.tower1 progress {
     accent-color: darkgreen !important;
     color: darkgreen !important;
 }
 
-.tower2{
+.tower2 {
     right: 20px;
 }
 
-.tower2 progress::-webkit-progress-value{
+.tower2 progress::-webkit-progress-value {
     background-color: darkblue !important;
 }
-.tower2 progress{
+
+.tower2 progress {
     accent-color: darkblue !important;
     color: darkblue !important;
 }
 
-.game-over{
+.game-over {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -127,19 +131,19 @@ progress{
 }
 
 
-.game-over p{
+.game-over p {
     color: blueviolet;
     font-size: 48px;
     font-weight: bold;
 }
 
-.game-over span{
+.game-over span {
     color: blueviolet;
     font-size: 48px;
     font-weight: bold;
 }
 
-.btn_restart{
+.btn_restart {
     position: absolute;
     top: 72%;
     left: 45%;
@@ -152,7 +156,7 @@ progress{
     font-size: 24px;
 }
 
-.pausebtn{
+.pausebtn {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -163,11 +167,37 @@ progress{
     z-index: 999;
 }
 
-.pausebtn img{
+.audioBtn {
+    position: absolute;
+    top: 8px;
+    right: 60px;
+    width: 35px;
+    height: 35px;
+    background-color: mediumslateblue;
+    border-radius: 999px;
+    z-index: 999;
+    background-image: url(img/Speaker_Icon.svg.png);
+    background-size: contain;
+}
+
+.offCondition {
+    position: absolute;
+    top: 8px;
+    right: 60px;
+    width: 35px;
+    height: 35px;
+    background-color: mediumslateblue;
+    border-radius: 999px;
+    z-index: 999;
+    background-image: url(img/109-1095591_no-audio-icon-free-download-png-and-vector.png);
+    background-size: contain;
+}
+
+.pausebtn img {
     width: 100%;
 }
 
-.bg_pause{
+.bg_pause {
     position: absolute;
     top: 0;
     left: 0;
@@ -180,38 +210,37 @@ progress{
     display: none;
     justify-content: center;
     align-items: center;
-    color:mediumblue;
+    color: mediumblue;
     font-size: 24px;
     font-weight: bold;
 }
 
-a:link{
-    color:blueviolet;
-   font-size:20px;
-   margin-left: 30px;
- }
- 
- a:visited{
-   color: white;
- }
- 
- a:hover{
-   color:blueviolet;
- }
- 
- a:active{
-   color: white;
-    font-size:18px;
- }
+a:link {
+    color: blueviolet;
+    font-size: 20px;
+    margin-left: 30px;
+}
 
- .a_info{
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: blueviolet;
+}
+
+a:active {
+    color: white;
+    font-size: 18px;
+}
+
+.a_info {
     width: 100%;
     height: 100vh;
- }
+}
 
- .a_info img{
+.a_info img {
     width: 70%;
     height: 100vh;
-   
- }
 
+}
