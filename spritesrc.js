@@ -28,8 +28,4 @@ let arrTypeEnemyLeft = ['left1', 'left2', 'left3', 'left4', 'left5'];
 let arrTypeEnemyRight = ['right1', 'right2', 'right3', 'right4', 'right5'];
 let arrEnemyLeft = [];
 let arrEnemyRight = [];
-
-let leftId;
-let rightId;
-let clearId;
-let runId = null;
+let typeEnemyInBattle = new Set();

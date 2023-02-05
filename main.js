@@ -2,6 +2,19 @@
 
 let canvas;
 let ctx;
+let tower1;
+let tower2;
+let inputTower1;
+let spantower1Ch;
+let inputTower2;
+let spantower2Ch;
+let leftId;
+let rightId;
+let clearId;
+let runId = null;
+
+let leftDamage = 0;
+let rightDamage = 0;
 
 function start() {
     document.querySelector('.info').remove();
@@ -75,34 +88,34 @@ function start() {
 
     wrapper.appendChild(canvas);
 
-    let tower1 = {
-        name: 'towerGrey',
+    tower1 = {
+        name: 'Tower Grey',
         x: 0,
         y: canvas.height,
-        hp: 30,
-        current_hp: 30,
+        hp: 100,
+        current_hp: 100,
         die: false,
 
     }
 
-    let tower2 = {
-        name: 'towerPink',
+    tower2 = {
+        name: 'Tower Pink',
         x: canvas.width,
         y: canvas.height,
-        hp: 30,
-        current_hp: 30,
+        hp: 100,
+        current_hp: 100,
         die: false,
     }
 
     let divTower1 = document.createElement('div');
     divTower1.classList.add('tower-indicator');
     divTower1.classList.add('tower1');
-    let inputTower1 = document.createElement('progress');
+    inputTower1 = document.createElement('progress');
     inputTower1.max = tower1.hp;
     inputTower1.value = tower1.current_hp;
     divTower1.appendChild(inputTower1);
     let pTower1 = document.createElement('p');
-    let spantower1Ch = document.createElement('span');
+    spantower1Ch = document.createElement('span');
     spantower1Ch.textContent = tower1.current_hp;
     pTower1.append(spantower1Ch);
     divTower1.append(pTower1);
@@ -112,76 +125,40 @@ function start() {
     let divTower2 = document.createElement('div');
     divTower2.classList.add('tower-indicator');
     divTower2.classList.add('tower2');
-    let inputTower2 = document.createElement('progress');
+    inputTower2 = document.createElement('progress');
     inputTower2.max = tower2.hp;
     inputTower2.value = tower2.current_hp;
     divTower2.appendChild(inputTower2);
     let pTower2 = document.createElement('p');
-    let spantower2Ch = document.createElement('span');
+    spantower2Ch = document.createElement('span');
     spantower2Ch.textContent = tower2.current_hp;
     pTower2.append(spantower2Ch);
     divTower2.append(pTower2);
     wrapper.append(divTower2);
 
     function drawTowers() {
-        //ctx.clearRect(0, 0, width, height);
         ctx.drawImage(imgTower1, tower1.x - 150, tower1.y - 500, 400, 500);
         ctx.drawImage(imgTower2, tower2.x - 250, tower2.y - 580, 400, 600);
-
     }
 
-    function atackTower(tower, damage) {
-        if (tower.current_hp >= damage) {
-
-            tower.current_hp = tower.current_hp - damage;
-            if (tower.name === 'towerGrey') {
-                inputTower1.value = tower.current_hp;
-                spantower1Ch.textContent = tower.current_hp;
-            } else {
-                inputTower2.value = tower.current_hp;
-                spantower2Ch.textContent = tower.current_hp;
-            }
-        } else {
-            tower.die = true;
-            tower.current_hp = 0;
-            if (tower.name === 'towerGrey') {
-                inputTower1.value = tower.current_hp;
-                spantower1Ch.textContent = tower.current_hp;
-            } else {
-                inputTower2.value = tower.current_hp;
-                spantower2Ch.textContent = tower.current_hp;
-            }
-        }
-    }
-    /*
-    let atack = setInterval(() => {
-        if (!pause) {
-            atackTower(tower1, 1);
-            atackTower(tower2, 2);
-        }
-    }, 1000);
-*/
     function loop(timestamp) {
 
         drawTowers();
-        // write your enimes updates here
+    
 
-
-
-        // don`t touch code down
-        if (!tower1.die && !tower2.die) {
+        if (tower1.current_hp !== 0 && tower2.current_hp !== 0) {
             if (!pause) {
                 lastRender = timestamp;
                 window.requestAnimationFrame(loop);
             }
         } else {
             audioStart.pause();
-            clearInterval(atack);
             pausebtn.remove();
+            audioBtn.remove();
             let lossBlock = document.createElement('div');
             lossBlock.classList.add('game-over');
             let p = document.createElement('p');
-            p.textContent = `${tower1.die ? tower1.name : tower2.name} loss`;
+            p.textContent = `${tower2.die ? tower1.name : tower2.name} win: ${tower1.name} damage - ${leftDamage}, ${tower2.name} damage - ${rightDamage}`;
             lossBlock.appendChild(p);
             let span = document.createElement('span');
             span.textContent = 'GAME OVER';
@@ -196,11 +173,12 @@ function start() {
             audioLoss.src = './audio/loss.mp3';
             audioLoss.play();
             clearEnemy();
-            //statistica
+            console.log(typeEnemyInBattle);
         }
     }
 
     let lastRender = 0;
     window.requestAnimationFrame(loop);
 }
+
 

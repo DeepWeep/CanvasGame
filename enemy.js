@@ -16,17 +16,18 @@ class Enemy extends UpdateEnemy {
     this.positionY = options.positionY;
     this.width = options.width;
     this.height = options.height;
-    this.live = 100;
-    this.step = Math.ceil(Math.random() * 2);
+    this.live = options.live;
+    this.step = rund();
     this.startId = null;
     this.stopId = null; 
 
-    if (this.positionX === 50) {
+    if (this.positionX === 150) {
       arrEnemyLeft.push(this);
     } else {
       arrEnemyRight.push(this);
     }
 
     this.start();
+    typeEnemyInBattle.add(this.type);
   }
 }

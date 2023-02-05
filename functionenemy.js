@@ -1,5 +1,9 @@
 'use strict';
 
+function randomTime() {
+  return Math.floor(Math.random() * (1000 - 500)) + 500;
+}
+
 function pauseSprite() {
   cancelAnimationFrame(runId);
   runId = null;
@@ -12,8 +16,8 @@ function pauseSprite() {
 
 function startSprite() {
   clearId = setInterval(() => ctx.clearRect(0, 0, canvas.width, canvas.height), 1);
-  leftId = setInterval(() => enemy(arrTypeEnemyLeft[Math.floor(Math.random() * arrTypeEnemyLeft.length)]), 1500);
-  rightId = setInterval(() => enemy(arrTypeEnemyRight[Math.floor(Math.random() * arrTypeEnemyRight.length)]), 1500);
+  leftId = setInterval(() => enemy(arrTypeEnemyLeft[Math.floor(Math.random() * arrTypeEnemyLeft.length)]), randomTime());
+  rightId = setInterval(() => enemy(arrTypeEnemyRight[Math.floor(Math.random() * arrTypeEnemyRight.length)]), randomTime());
   runEnemy();
 }
 
@@ -25,6 +29,7 @@ function runEnemy() {
     enemy.start();
   });
   battle();
+  damageTower();
   runId = requestAnimationFrame(() => {
     runEnemy();
   });
