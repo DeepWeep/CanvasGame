@@ -21,16 +21,26 @@ body {
 }
 
 .btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 90px;
-  height: 50px;
-  border-radius: 5px;
-  transform: translate(-50%, 50%);
-  font-size: 18px;
-  font-weight: 900;
-  color: blueviolet;
+  display: block;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  border-radius: 1px;
+  transition: 0.2s;
+  margin-top: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: coral;
+  width: 180px;
+  height: 60px;
+}
+
+.btn:hover {
+  background: chocolate;
 }
 
 canvas {
@@ -41,15 +51,12 @@ canvas {
 
 .discription {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 400px;
-  margin-top: 20px;
-  margin-left: 30px;
-  color: blueviolet;
-  font-size: 18px;
-  border: solid 4px blueviolet;
-  padding: 10px;
+  top: 10%;
+  left: 28.3%;
+  color: coral;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 116px;
 }
 
 .info {
@@ -59,9 +66,10 @@ canvas {
   width: 200px;
   padding-top: 10px;
   color: white;
-  border: solid 4px blueviolet;
+  border: solid 4px orangered;
   padding: 5px;
   font-weight: bold;
+  background-color: coral;
 }
 
 h2 {
@@ -109,17 +117,17 @@ progress {
 }
 
 .tower2 progress::-webkit-progress-value {
-  background-color: darkblue !important;
+  background-color: pink !important;
 }
 
 .tower2 progress {
-  accent-color: darkblue !important;
-  color: darkblue !important;
+  accent-color: pink !important;
+  color: pink !important;
 }
 
 .game-over {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1;
@@ -128,10 +136,18 @@ progress {
 }
 
 .game-over p {
-  color: blueviolet;
-  font-size: 28px;
+  color: black;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.game-over .p {
+  color: coral;
+  font-size: 76px;
   font-weight: bold;
 }
+
 
 .game-over span {
   color: blueviolet;
@@ -141,15 +157,16 @@ progress {
 
 .btn_restart {
   position: absolute;
-  top: 72%;
+  top: 80%;
   left: 45%;
-  width: 100px;
-  height: 50px;
+  width: 140px;
+  height: 65px;
   border-radius: 5px;
   background-color: #b918be;
-  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  background-image: linear-gradient(19deg, coral 0%, orangered 100%);
   color: white;
   font-size: 24px;
+  border: solid white;
 }
 
 .pausebtn {
@@ -158,7 +175,7 @@ progress {
   right: 10px;
   width: 35px;
   height: 35px;
-  background-color: mediumslateblue;
+  background-color: coral;
   border-radius: 999px;
   z-index: 999;
 }
@@ -169,7 +186,7 @@ progress {
   right: 60px;
   width: 35px;
   height: 35px;
-  background-color: mediumslateblue;
+  background-color: coral;
   border-radius: 999px;
   z-index: 999;
   background-image: url(img/Speaker_Icon.svg.png);
@@ -201,11 +218,9 @@ progress {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.45) 0%,
-    rgba(0, 0, 0, 0.45) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.45) 100%);
   z-index: 100;
   display: none;
   justify-content: center;
@@ -242,4 +257,9 @@ a:active {
 .a_info img {
   width: 70%;
   height: 100vh;
+}
+
+.p {
+  font-size: 366px;
+  z-index: 9999;
 }
