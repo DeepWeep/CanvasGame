@@ -1,6 +1,7 @@
 'use strict';
 
 let arrAudioHit = ['./audio/mech1.mp3', './audio/mech2.mp3', './audio/mech3.mp3', './audio/mech4.mp3', './audio/mech5.mp3', './audio/hit.mp3']
+let newAudio = [];
 
 function rund() {
   return Math.floor(Math.random() * (7 - 3)) + 3;
@@ -23,6 +24,7 @@ function damage(arr, enemyWin, enemyDead) {
       rightDamage += 100;
     }
     let audio = new Audio(arrAudioHit[Math.floor(Math.random() * 6)]);
+    newAudio.push(audio);
     audio.play();
   }
 }
@@ -39,13 +41,16 @@ function damageFly(arr, enemyWin, enemyDead) {
     if (arr === arrEnemyRight) {
       leftDamage += 100;
       let audio = new Audio('./audio/drak.mp3');
+      newAudio.push(audio);
       audio.play();
     } else {
       rightDamage += 100;
       let audio = new Audio('./audio/voron.mp3');
+      newAudio.push(audio);
       audio.play();
     }
     let audio = new Audio('./audio/damage2.mp3');
+    newAudio.push(audio);
     audio.play();
   }
 }
@@ -64,19 +69,23 @@ function battle() {
             arrEnemyLeft.splice(index, 1);
             enemyright.step = rund();
             rightDamage += 100;
-            let audio1 = new Audio('./audio/drak.mp3');
-            audio1.play();
-            let audio11 = new Audio('./audio/damage2.mp3');
-            audio11.play();
+            let audio = new Audio('./audio/drak.mp3');
+            newAudio.push(audio);
+            audio.play();
+            let audio2 = new Audio('./audio/damage2.mp3');
+            newAudio.push(audio2);
+            audio2.play();
           } else if (enemyright.live < 0) {
             let index = arrEnemyRight.indexOf(enemyright);
             arrEnemyRight.splice(index, 1);
             enemyleft.step = rund();
             leftDamage += 100;
-            let audio2 = new Audio('./audio/voron.mp3');
-            audio2.play();
-            let audio = new Audio('./audio/damage2.mp3');
+            let audio = new Audio('./audio/voron.mp3');
+            newAudio.push(audio);
             audio.play();
+            let audio2 = new Audio('./audio/damage2.mp3');
+            newAudio.push(audio2);
+            audio2.play();
           }
         } else if (enemyleft.type === 'fly2' && (enemyright.type === 'run1' || enemyright.type === 'run2' || enemyright.type === 'run3')) {
           damageFly(arrEnemyRight, enemyleft, enemyright);

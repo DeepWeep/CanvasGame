@@ -11,6 +11,7 @@ let spantower2Ch;
 let leftId;
 let rightId;
 let clearId;
+let audioId;
 let runId = null;
 let countNewEnemy = 0;
 let leftDamage = 0;
@@ -48,11 +49,14 @@ function start() {
                 audioStart.volume = 0;
                 audioBtn.style = 'background-image: url(img/109-1095591_no-audio-icon-free-download-png-and-vector.png);'
                 audioCondition = false;
+                audioId = setInterval(() => newAudio.forEach((elem) => elem.volume = 0), 0);
                 break;
             case false:
                 audioStart.volume = 0.5
                 audioBtn.style = 'background-image: url(img/Speaker_Icon.svg.png)';
                 audioCondition = true;
+                clearInterval(audioId);
+                //newAudio.forEach((elem) => elem.volume = 0.5);
                 break;
         }
     })
@@ -90,7 +94,7 @@ function start() {
     wrapper.appendChild(canvas);
 
     tower1 = {
-        name: 'Tower Grey',
+        name: 'Tower Green',
         x: 0,
         y: canvas.height,
         hp: 100,

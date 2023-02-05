@@ -3,7 +3,7 @@
 function atackTower(tower, damage) {
     if (tower.current_hp >= damage) {
         tower.current_hp = tower.current_hp - damage;
-        if (tower.name === 'Tower Grey') {
+        if (tower.name === 'Tower Green') {
             inputTower1.value = tower.current_hp;
             spantower1Ch.textContent = tower.current_hp;
         } else {

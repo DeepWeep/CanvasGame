@@ -10,7 +10,7 @@ function enemyFactory(type) {
   } else if (type === 'left4') {
     return new Enemy({ ctx: canvas.getContext('2d'), image: left4, width: 1308, height: 90, positionX: 150, positionY: positiony(290), type: 'fly1', frameIndex: 0, numberOfFrames: 12, ticksPerFrame: 4, live: 100})
   } else if (type === 'left5') {
-    return new Enemy({ ctx: canvas.getContext('2d'), image: left4, width: 1308, height: 90, positionX: 150, positionY: positiony(290), type: 'fly2', frameIndex: 0, numberOfFrames: 12, ticksPerFrame: 4, live: 100})
+    return new Enemy({ ctx: canvas.getContext('2d'), image: left5, width: 279, height: 43, positionX: 150, positionY: positiony(290), type: 'fly2', frameIndex: 0, numberOfFrames: 4, ticksPerFrame: 3, live: 100})
   } else if (type === 'right1') {
     return new Enemy({ ctx: canvas.getContext('2d'), image: right1, width: 1200, height: 100, positionX: positionx(), positionY: positiony(100), type: 'run1', frameIndex: 10, numberOfFrames: 10, ticksPerFrame: 4, live: 100})
   } else if (type === 'right2') {
@@ -20,7 +20,7 @@ function enemyFactory(type) {
   } else if (type === 'right4') {
     return new Enemy({ ctx: canvas.getContext('2d'), image: right4, width: 844, height: 95, positionX: positionx(), positionY: positiony(295), type: 'fly1', frameIndex: 10, numberOfFrames: 10, ticksPerFrame: 4, live: 100})
   } else if (type === 'right5') {
-    return new Enemy({ ctx: canvas.getContext('2d'), image: right4, width: 844, height: 95, positionX: positionx(), positionY: positiony(295), type: 'fly2', frameIndex: 10, numberOfFrames: 10, ticksPerFrame: 4, live: 100})
+    return new Enemy({ ctx: canvas.getContext('2d'), image: right5, width: 307, height: 40, positionX: positionx(), positionY: positiony(295), type: 'fly2', frameIndex: 0, numberOfFrames: 4, ticksPerFrame: 3, live: 100})
   }
 }
 
