@@ -15,6 +15,7 @@ let runId = null;
 let countNewEnemy = 0;
 let leftDamage = 0;
 let rightDamage = 0;
+let body = document.getElementsByClassName('body')[0]
 
 function start() {
     document.querySelector('.info').remove();
@@ -144,7 +145,7 @@ function start() {
     function loop(timestamp) {
 
         drawTowers();
-    
+
 
         if (tower1.current_hp !== 0 && tower2.current_hp !== 0) {
             if (!pause) {
@@ -155,23 +156,39 @@ function start() {
             audioStart.pause();
             pausebtn.remove();
             audioBtn.remove();
+
             let lossBlock = document.createElement('div');
             lossBlock.classList.add('game-over');
             let p = document.createElement('p');
-            p.textContent = `${tower2.die ? tower1.name : tower2.name} win: total damage ${leftDamage + rightDamage}, ${tower1.name} damage - ${leftDamage}, ${tower2.name} damage - ${rightDamage}, created units - ${countNewEnemy}, dead units - ${(leftDamage + rightDamage) / 100}`;
-            lossBlock.appendChild(p);
-            let span = document.createElement('span');
-            span.textContent = 'GAME OVER';
-            lossBlock.appendChild(span);
+            p.textContent = `${tower2.die ? tower1.name : tower2.name} Won`
+            p.classList.add('p')
+            let p2 = document.createElement('p');
+            p2.textContent = `Total damage: ${leftDamage + rightDamage}`
+            let p3 = document.createElement('p');
+            p3.textContent = `${tower1.name} damage: ${leftDamage}`
+            let p4 = document.createElement('p')
+            p4.textContent = `${tower2.name} damage: ${rightDamage}`
+            let p5 = document.createElement('p');
+            p5.textContent = `Created units: ${countNewEnemy}`
+            let p6 = document.createElement('p');
+            p6.textContent = `Dead units:  ${(leftDamage + rightDamage) / 100}`
+            lossBlock.append(p);
+            lossBlock.append(p2);
+            lossBlock.append(p3);
+            lossBlock.append(p4);
+            lossBlock.append(p5);
+            lossBlock.append(p6);
             wrapper.appendChild(lossBlock);
             let btnRestart = document.createElement('button');
             btnRestart.addEventListener('click', () => location.reload());
             wrapper.appendChild(btnRestart);
             btnRestart.textContent = 'Restart';
             btnRestart.setAttribute('class', 'btn_restart');
-            let audioLoss = new Audio();
-            audioLoss.src = './audio/loss.mp3';
-            audioLoss.play();
+            if (audioCondition === true) {
+                let audioLoss = new Audio();
+                audioLoss.src = './audio/loss.mp3';
+                audioLoss.play();
+            }
             clearEnemy();
             console.log(typeEnemyInBattle);
         }
