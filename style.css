@@ -67,9 +67,16 @@ canvas {
   padding-top: 10px;
   color: white;
   border: solid 4px orangered;
-  padding: 5px;
+  padding: 10px;
   font-weight: bold;
   background-color: coral;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h3 {
+  margin: 0;
 }
 
 h2 {
@@ -234,7 +241,6 @@ progress {
 a:link {
   color: blueviolet;
   font-size: 20px;
-  margin-left: 30px;
 }
 
 a:visited {

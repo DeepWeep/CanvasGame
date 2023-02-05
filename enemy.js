@@ -17,11 +17,11 @@ class Enemy extends UpdateEnemy {
     this.width = options.width;
     this.height = options.height;
     this.live = options.live;
-    this.step = rund();
+    this.step = 5;
     this.startId = null;
     this.stopId = null; 
 
-    if (this.positionX === 150) {
+    if (this.positionX === 250) {
       arrEnemyLeft.push(this);
     } else {
       arrEnemyRight.push(this);

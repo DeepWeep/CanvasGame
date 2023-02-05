@@ -16,7 +16,17 @@ let runId = null;
 let countNewEnemy = 0;
 let leftDamage = 0;
 let rightDamage = 0;
-let body = document.getElementsByClassName('body')[0]
+let posTower1 = 0;
+let posTower2 = 0;
+let body = document.getElementsByClassName('body')[0];
+
+function posX1() {
+    posTower1 += 379;
+}
+
+function posX2() {
+    posTower2 += 500;
+}
 
 function start() {
     document.querySelector('.info').remove();
@@ -33,9 +43,9 @@ function start() {
     let height;
     startSprite();
     let imgTower1 = new Image();
-    imgTower1.src = './img/tower1.png';
+    imgTower1.src = './img/tower11.png';
     let imgTower2 = new Image();
-    imgTower2.src = './img/tower2.png';
+    imgTower2.src = './img/tower33.png';
     let pause = false;
     let pausebtn = document.createElement('button');
     let audioBtn = document.createElement('button')
@@ -141,14 +151,18 @@ function start() {
     divTower2.append(pTower2);
     wrapper.append(divTower2);
 
-    function drawTowers() {
-        ctx.drawImage(imgTower1, tower1.x - 150, tower1.y - 500, 400, 500);
-        ctx.drawImage(imgTower2, tower2.x - 250, tower2.y - 580, 400, 600);
+    function drawTowerGreen() {
+        ctx.drawImage(imgTower1, posTower1, 0, 379, 812, 0, window.innerHeight - 550, 300, 550)
+    }
+
+    function drawTowerPink() {
+        ctx.drawImage(imgTower2, posTower2, 0, 500, 1003, window.innerWidth - 300, window.innerHeight - 600, 300, 600)
     }
 
     function loop(timestamp) {
 
-        drawTowers();
+        drawTowerGreen();
+        drawTowerPink();
 
 
         if (tower1.current_hp !== 0 && tower2.current_hp !== 0) {
