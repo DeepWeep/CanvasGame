@@ -12,7 +12,7 @@ let leftId;
 let rightId;
 let clearId;
 let runId = null;
-
+let countNewEnemy = 0;
 let leftDamage = 0;
 let rightDamage = 0;
 
@@ -158,7 +158,7 @@ function start() {
             let lossBlock = document.createElement('div');
             lossBlock.classList.add('game-over');
             let p = document.createElement('p');
-            p.textContent = `${tower2.die ? tower1.name : tower2.name} win: ${tower1.name} damage - ${leftDamage}, ${tower2.name} damage - ${rightDamage}`;
+            p.textContent = `${tower2.die ? tower1.name : tower2.name} win: total damage ${leftDamage + rightDamage}, ${tower1.name} damage - ${leftDamage}, ${tower2.name} damage - ${rightDamage}, created units - ${countNewEnemy}, dead units - ${(leftDamage + rightDamage) / 100}`;
             lossBlock.appendChild(p);
             let span = document.createElement('span');
             span.textContent = 'GAME OVER';

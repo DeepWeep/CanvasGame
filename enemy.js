@@ -28,6 +28,7 @@ class Enemy extends UpdateEnemy {
     }
 
     this.start();
+    countNewEnemy += 1;
     typeEnemyInBattle.add(this.type);
   }
 }
