@@ -172,7 +172,7 @@ progress {
 
 @media screen and (min-width: 320px) and (max-width: 900px){
   .game-over {
-   top: 50%;
+   top: 60%;
   }
 
   .game-over p {
@@ -204,9 +204,19 @@ progress {
   border: solid white;
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px){
+@media screen and (min-width: 320px) and (max-width: 560px){
   .btn_restart{
-    top: 85%;
+    top: 95%;
+    width: 120px;
+  height: 45px;
+  z-index: 1;
+  }
+
+}
+
+@media screen and (min-width: 561px) and (max-width: 767px){
+  .btn_restart{
+    top: 80%;
     width: 120px;
   height: 45px;
   z-index: 1;
@@ -217,7 +227,7 @@ progress {
 @media screen and (min-width: 768px) and (max-width: 900px){
   .btn_restart{
     z-index: 1;
-    top: 75%;
+    top: 85%;
   }
 
 }
