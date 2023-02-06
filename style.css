@@ -37,10 +37,19 @@ body {
   background-color: coral;
   width: 180px;
   height: 60px;
+  position: relative;
+  z-index: 1;
 }
 
 .btn:hover {
   background: chocolate;
+}
+
+@media screen and (min-width: 320px) and (max-width: 900px){
+  .btn{
+    top: 130px;
+  }
+
 }
 
 canvas {
@@ -57,6 +66,12 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   font-size: 116px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 900px){
+  .discription{
+    font-size: 64px;
+  }
 }
 
 .info {
@@ -139,7 +154,7 @@ progress {
   transform: translate(-50%, -50%);
   line-height: 1;
   margin: 0;
-  z-index: 999;
+  /* z-index: 999; */
 }
 
 .game-over p {
@@ -155,6 +170,20 @@ progress {
   font-weight: bold;
 }
 
+@media screen and (min-width: 320px) and (max-width: 900px){
+  .game-over {
+   top: 50%;
+  }
+
+  .game-over p {
+    font-size: 16px;
+  }
+
+  .game-over .p {
+    font-size: 42px;
+  }
+
+}
 .game-over span {
   color: blueviolet;
   font-size: 48px;
@@ -175,6 +204,23 @@ progress {
   border: solid white;
 }
 
+@media screen and (min-width: 320px) and (max-width: 767px){
+  .btn_restart{
+    top: 110%;
+    width: 120px;
+  height: 45px;
+  z-index: 1;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px){
+  .btn_restart{
+    z-index: 1;
+    top: 75%;
+  }
+
+}
 .pausebtn {
   position: absolute;
   top: 8px;
