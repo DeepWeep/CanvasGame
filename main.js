@@ -15,9 +15,9 @@ function start() {
     let height;
     startSprite();
     let imgTower1 = new Image();
-    imgTower1.src = './img/tower11.png';
+    imgTower1.src = './img/tower55.png';
     let imgTower2 = new Image();
-    imgTower2.src = './img/tower33.png';
+    imgTower2.src = './img/tower44.png';
     let pause = false;
     let pausebtn = document.createElement('button');
     let audioBtn = document.createElement('button')
