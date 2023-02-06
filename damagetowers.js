@@ -19,7 +19,7 @@ function damageTower() {
         }
     });
     arrEnemyRight.forEach((enemyright) => {
-        if (enemyright.positionX <= 250) {
+        if (enemyright.positionX <= 150) {
             atackTower(tower1, 10);
             posX1();
             let index = arrEnemyRight.indexOf(enemyright);
