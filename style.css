@@ -206,7 +206,7 @@ progress {
 
 @media screen and (min-width: 320px) and (max-width: 767px){
   .btn_restart{
-    top: 110%;
+    top: 85%;
     width: 120px;
   height: 45px;
   z-index: 1;
