@@ -1,15 +1,5 @@
 'use strict';
 
-
-
-function posX1() {
-    posTower1 += 379;
-}
-
-function posX2() {
-    posTower2 += 500;
-}
-
 function start() {
     document.querySelector('.info').remove();
     document.querySelector('.discription').remove();
@@ -48,7 +38,6 @@ function start() {
                 audioBtn.style = 'background-image: url(img/Speaker_Icon.svg.png)';
                 audioCondition = true;
                 clearInterval(audioId);
-                //newAudio.forEach((elem) => elem.volume = 0.5);
                 break;
         }
     })
@@ -160,7 +149,7 @@ function start() {
             let lossBlock = document.createElement('div');
             lossBlock.classList.add('game-over');
             let p = document.createElement('p');
-            p.textContent = `${tower2.die ? tower1.name : tower2.name} Won`
+            p.textContent = `${tower2.current_hp === 0 ? tower1.name : tower2.name} Won`
             p.classList.add('p')
             let p2 = document.createElement('p');
             p2.textContent = `Total damage: ${leftDamage + rightDamage}`
@@ -190,7 +179,10 @@ function start() {
                 audioLoss.play();
             }
             clearEnemy();
-            console.log(typeEnemyInBattle);
+            for (let type of typeEnemyInBattle) {
+                
+            }
+            setEnemy();
         }
     }
 

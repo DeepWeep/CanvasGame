@@ -53,4 +53,5 @@ let leftDamage = 0;
 let rightDamage = 0;
 let posTower1 = 0;
 let posTower2 = 0;
+let result = 'Types of hero in battle: ';
 let body = document.getElementsByClassName('body')[0];

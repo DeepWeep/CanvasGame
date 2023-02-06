@@ -13,8 +13,5 @@ class RenderPause extends MoovEnemy {
       this.width / this.numberOfFrames,
       this.height
     )
-    this.stopId = requestAnimationFrame(() => {
-      this.renderstop();
-    });
   }
 }

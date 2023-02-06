@@ -1,5 +1,12 @@
 'use strict';
 
+function setEnemy() {
+    for (let type of typeEnemyInBattle) {
+      result += type + ', '          
+    }
+    console.log(result.slice(0, -2,) + '!');
+}
+
 function randomTime() {
   return Math.floor(Math.random() * (1000 - 500)) + 500;
 }

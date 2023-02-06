@@ -17,9 +17,7 @@ class Enemy extends UpdateEnemy {
     this.width = options.width;
     this.height = options.height;
     this.live = options.live;
-    this.step = 5;
-    this.startId = null;
-    this.stopId = null; 
+    this.step = 5; 
 
     if (this.positionX === 250) {
       arrEnemyLeft.push(this);

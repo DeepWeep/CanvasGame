@@ -40,18 +40,15 @@ function damageFly(arr, enemyWin, enemyDead) {
     enemyWin.step = rund();
     if (arr === arrEnemyRight) {
       leftDamage += 100;
-      let audio = new Audio('./audio/drak.mp3');
-      newAudio.push(audio);
-      audio.play();
     } else {
       rightDamage += 100;
-      let audio = new Audio('./audio/voron.mp3');
-      newAudio.push(audio);
-      audio.play();
     }
-    let audio = new Audio('./audio/damage2.mp3');
+    let audio = new Audio('./audio/myshy.mp3');
     newAudio.push(audio);
     audio.play();
+    let audio2 = new Audio('./audio/damage2.mp3');
+    newAudio.push(audio2);
+    audio2.play();
   }
 }
 
