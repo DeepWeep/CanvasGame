@@ -12,7 +12,7 @@ function damage(arr, enemyWin, enemyDead) {
   enemyDead.step = 0.01;
   enemyWin.ticksPerFrame = 10;
   enemyDead.ticksPerFrame = 10;
-  setInterval(() => enemyDead.live -= rund(), 100);
+  setInterval(() => enemyDead.live -= rund(), 50);
   if (enemyDead.live < 0) {
     let index = arr.indexOf(enemyDead);
     arr.splice(index, 1);
@@ -33,7 +33,7 @@ function damageFly(arr, enemyWin, enemyDead) {
   enemyWin.step = 0.01;
   enemyDead.step = 0.01;
   enemyDead.ticksPerFrame = 10;
-  setInterval(() => enemyDead.live -= rund(), 100);
+  setInterval(() => enemyDead.live -= rund(), 50);
   if (enemyDead.live < 0) {
     let index = arr.indexOf(enemyDead);
     arr.splice(index, 1);
@@ -62,8 +62,8 @@ function battle() {
         if ((enemyleft.type === 'fly1' && (enemyright.type === 'fly1' || enemyright.type === 'fly2')) || (enemyright.type === 'fly1' && (enemyleft.type === 'fly1' || enemyleft.type === 'fly2'))) {
           enemyleft.step = 0.01;
           enemyright.step = 0.01;
-          setInterval(() => enemyleft.live -= rund(), 100);
-          setInterval(() => enemyright.live -= rund(), 100);
+          setInterval(() => enemyleft.live -= rund(), 50);
+          setInterval(() => enemyright.live -= rund(), 50);
           if (enemyleft.live < 0) {
             let index = arrEnemyLeft.indexOf(enemyleft);
             arrEnemyLeft.splice(index, 1);

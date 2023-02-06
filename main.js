@@ -1,24 +1,6 @@
 'use strict';
 
-let canvas;
-let ctx;
-let tower1;
-let tower2;
-let inputTower1;
-let spantower1Ch;
-let inputTower2;
-let spantower2Ch;
-let leftId;
-let rightId;
-let clearId;
-let audioId;
-let runId = null;
-let countNewEnemy = 0;
-let leftDamage = 0;
-let rightDamage = 0;
-let posTower1 = 0;
-let posTower2 = 0;
-let body = document.getElementsByClassName('body')[0];
+
 
 function posX1() {
     posTower1 += 379;
